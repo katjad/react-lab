@@ -39,17 +39,20 @@
         var Like = React.createClass({
             getInitialState: function() {
                 return {
-                    like: false
+                    like: false,
+                    txt: 'Like'
                 }
             },
             like: function() {
+                var buttontxt = (this.state.txt == 'Like')? 'Unlike': 'Like';
                 this.setState({
-                    like: !this.state.like
+                    like: !this.state.like,
+                    txt: buttontxt
                 });
             },
             render: function() {
                 return (
-                    <button type="button" className={this.state.like ? 'btn btn-primary' : 'btn btn-default'} onClick={this.like}>Like</button>
+                    <button type="button" className={this.state.like ? 'btn btn-primary' : 'btn btn-default'} onClick={this.like}>{this.state.txt}</button>
                 )
             }
         });    
